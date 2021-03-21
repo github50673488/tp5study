@@ -15,6 +15,10 @@ class Debugtest
 
     }
 
+    public function excetiontest1()//http://tp5.com/index/debugtest/excetiontest1
+    {
+        return 'hello,'.$_GET['name'];
+    }
 
 
 

@@ -24,7 +24,11 @@ class File
         'single'      => false,
         'file_size'   => 2097152,
         'path'        => LOG_PATH,
-        'apart_level' => [],
+        'apart_level' => [
+            'type'          => 'file',
+            // error和sql日志单独记录
+            'apart_level'   =>  ['error','sql'],
+        ],
     ];
 
     protected $writed = [];
