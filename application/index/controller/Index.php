@@ -4,6 +4,7 @@ namespace app\index\controller;
 use think\Controller;
 use think\Db;
 use think\Request;
+// use \traits\controller\Jump;  如果你的控制器类是继承的\think\Controller的话，系统已经自动为你引入了 \traits\controller\Jump
 
 class Index extends Controller
 {
@@ -91,4 +92,61 @@ class Index extends Controller
 
         return 'Hello,' . $name . '！';
     }
+
+//大多数情况，我们不需要关注Response对象本身，只需要在控制器的操作方法中返回数据即可，系统会根据default_return_type和default_ajax_return配置决定响应输出的类型。
+//
+//默认的自动响应输出会自动判断是否AJAX请求，如果是的话会自动输出default_ajax_return配置的输出类型，下面的例子，由于是html，会出错
+    public function hello8()//http://tp5.com/index/index/hello8
+    {
+        $data = ['name' => 'thinkphp', 'status' => '1'];
+        return $data;
+    }
+
+//手动输出
+//在必要的时候，可以手动控制输出类型和参数，这种方式较为灵活。如果需要指定输出类型，可以通过下面的方式
+    public function hello9()//http://tp5.com/index/index/hello9
+    {
+        $data = ['name' => 'thinkphp', 'status' => '1'];
+        return json($data);
+    }
+
+//页面跳转
+//如果需要进行一些简单的页面操作提示或者重定向，可以引入traits\controller\Jump，就可以使用相关页面跳转和重定向方法，
+//下面举一个简单的例子，当页面传入name参数为thinkphp的时候，跳转到欢迎页面，其它情况则跳转到一个guest页面。
+    public function hello10($name='')//http://tp5.com/index/index/hello10?name=thinkphp
+    {
+        if ('thinkphp' == $name) {
+            $this->success('欢迎使用ThinkPHP
+        5.0','hello11');
+        } else {
+            $this->error('错误的name','guest');
+        }
+    }
+
+    public function hello11()
+    {
+        return 'Hello11,ThinkPHP!';
+    }
+
+    public function guest()
+    {
+        return 'Hello,Guest!';
+    }
+    //在任何时候（即使没有引入Jump trait的话），我们可以使用系统提供的助手函数redirect函数进行重定向。
+    public function hello12($name='')//http://tp5.com/index/index/hello12?name=thinkphp
+    {
+        if ('thinkphp' == $name) {
+            $this->redirect('http://thinkphp.cn');
+        } else {
+            $this->success('欢迎使用ThinkPHP','hello13');
+        }
+    }
+
+    public function hello13()
+    {
+        return 'Hello13,ThinkPHP!';
+    }
+
+
+
 }
