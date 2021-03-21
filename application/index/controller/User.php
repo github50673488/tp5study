@@ -8,7 +8,7 @@ use think\Validate;
 class User extends Controller{
 
     public function index() {// 获取用户数据列表并输出
-        //http://tp5.com:8080/user/index
+        //http://tp5.com/user/index
         //$list = UserModel::all();
         //$list = UserModel::all(['status'=>1]);
 //        $list = UserModel::where('id', '>', 5)->select();
@@ -33,7 +33,7 @@ class User extends Controller{
     }
 
 // 新增用户数据
-    public function add() {//http://tp5.com:8080/user/add
+    public function add() {//http://tp5.com/user/add
 //        $user = new UserModel;
 //        $user->nickname = '流年';
 //        $user->email = 'thinkphp@qq.com';
@@ -88,7 +88,7 @@ class User extends Controller{
     }
 
     // 批量新增用户数据
-    public function addList() {//http://tp5.com:8080/user/add_list
+    public function addList() {//http://tp5.com/user/add_list
         $user = new UserModel;
         $list = [
             ['nickname' => '张三', 'email' => 'zhanghsan@qq.com', 'birthday' => strtotime('1
@@ -104,7 +104,7 @@ class User extends Controller{
     }
 
     // 读取用户数据
-    public function read($id = '') {//http://tp5.com:8080/user/1
+    public function read($id = '') {//http://tp5.com/user/1
 //        $user = UserModel::get($id);
 //        echo $user->nickname . '<br/>';
 //        echo $user->email . '<br/>';
@@ -123,7 +123,7 @@ class User extends Controller{
     }
 
     // 更新用户数据
-    public function update($id) {//http://tp5.com:8080/user/update/7
+    public function update($id) {//http://tp5.com/user/update/7
 //        $user = UserModel::get($id);
 //        $user->nickname = '刘晨';
 //        $user->email = 'liu21st@gmail.com';
@@ -140,7 +140,7 @@ class User extends Controller{
     }
 
     // 删除用户数据
-    public function delete($id) {//http://tp5.com:8080/user/delete/1
+    public function delete($id) {//http://tp5.com/user/delete/1
 //        $user = UserModel::get($id);
 //        if ($user) {
 //            $user->delete();
@@ -157,7 +157,7 @@ class User extends Controller{
     }
 
     // 创建用户数据页面
-    public function create() {//http://tp5.com:8080/user/create
+    public function create() {//http://tp5.com/user/create
         return view();
         // return view('user/create');
     }

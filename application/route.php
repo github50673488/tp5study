@@ -15,6 +15,14 @@ return [
     '__pattern__' => [
         'name' => '\w+',
     ],
+    'user/index' => 'index/user/index',
+    'user/create' => 'index/user/create',
+    'user/add' => 'index/user/add',
+    'user/add_list' => 'index/user/addList',
+    'user/update/:id' => 'index/user/update',
+    'user/delete/:id' => 'index/user/delete',
+    'user/:id' => 'index/user/read',
+    ':version/user/:id'=>'api/:version.User/read',
     // 定义了局部变量规则 ,复杂路由
     '[blog]' => [
         ':year/:month' => ['blog/archive', ['method' => 'get'], ['year' => '\d{4}', 'month' => '\d{2}']],

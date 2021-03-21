@@ -4,7 +4,7 @@ namespace app\api\controller\v1;
 
 use app\api\model\User as UserModel;
 
-class User {//http://tp5.com:8080/v1/user/10
+class User {//http://tp5.com/v1/user/10
 
 // 获取用户信息
     public function read($id = 0) {
