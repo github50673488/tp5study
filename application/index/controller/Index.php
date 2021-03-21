@@ -50,4 +50,45 @@ class Index extends Controller
         echo 'url: ' . request()->url() . '<br/>';
         return 'Hello,' . $name . '！';
     }
+
+//系统推荐使用param方法统一获取当前请求变量，该方法最大的优势是让你不需要区分当前请求类型而使用不同的全局变量或者方法，并且可以满足大部分的参数需求
+    public function hello6(Request $request)//http://tp5.com/index/index/hello6.html?test=ddd&name=thinkphp
+    {
+        echo '请求参数：';
+        dump($request->param());
+        echo 'name:'.$request->param('name');
+    }
+
+    public function hello7()//http://tp5.com/index/index/hello7.html?test=ddd&name=thinkphp
+    {
+        echo '请求参数：';
+        dump(input());
+        echo 'name:'.input('name');
+    }
+
+    public function hello5(Request $request,$name = 'World')//http://tp5.com/index/index/hello5.html?name=thinkphp
+    {
+        // 获取当前域名
+        echo 'domain: ' . $request->domain() . '<br/>';
+        // 获取当前入口文件
+        echo 'file: ' . $request->baseFile() . '<br/>';
+        // 获取当前URL地址 不含域名
+        echo 'url: ' . $request->url() . '<br/>';
+        // 获取包含域名的完整URL地址
+        echo 'url with domain: ' . $request->url(true) . '<br/>';
+        // 获取当前URL地址 不含QUERY_STRING
+        echo 'url without query: ' . $request->baseUrl() . '<br/>';
+        // 获取URL访问的ROOT地址
+        echo 'root:' . $request->root() . '<br/>';
+        // 获取URL访问的ROOT地址
+        echo 'root with domain: ' . $request->root(true) . '<br/>';
+        // 获取URL地址中的PATH_INFO信息
+        echo 'pathinfo: ' . $request->pathinfo() . '<br/>';
+        // 获取URL地址中的PATH_INFO信息 不含后缀
+        echo 'pathinfo: ' . $request->path() . '<br/>';
+        // 获取URL地址中的后缀信息
+        echo 'ext: ' . $request->ext() . '<br/>';
+
+        return 'Hello,' . $name . '！';
+    }
 }
