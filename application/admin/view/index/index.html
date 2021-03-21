@@ -1,0 +1,157 @@
+{include file="common/header" /}
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+<!--
+    <section class="content-header">
+      <h1>
+        简易云文档管理系统
+        <small>Document Management System</small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+        <li class="active">Here</li>
+      </ol>
+    </section>
+-->
+    <!-- Main content -->
+    <section class="content container-fluid">
+      <!-- START ACCORDION & CAROUSEL-->
+      <h2 class="page-header">简易云文档管理系统</h2>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="box box-solid">
+            <div class="box-header with-border">
+              <h3 class="box-title">Document Management System</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="box-group" id="accordion">
+                <!-- we are adding the .panel class so bootstrap.js collapse plugin detects it -->
+                <div class="panel box box-primary">
+                  <div class="box-header with-border">
+                    <h4 class="box-title">
+                      <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                         <i class="fa fa-hand-o-right"></i> 简介
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="box-body">
+<p>
+简述：能实现本地文档上传到云盘存储或者从云盘下载到本地的操作，并实现对文档管理的日常操作。<br>
+集中存储: 云盘管理<br>
+目录结构: 树状层次结构<br>
+显示模式: 列表模式<br>
+全文搜索: 按文件名关键字搜索<br>
+权限管理: 提供权限控制机制(TBD)<br>
+1. 上传本地文档到云盘（暂定为七牛云的存储技术）<br>
+2. 从云盘下载文档在本地<br>
+3. 从云盘上删除文档<br>
+4. 后台系统实现对文档的日常基本操作(比如增删改文档)<br>
+5. 可以对文档的分门别类管理(重命名，移动文档)<br>
+6. 能排序搜索项目/文档，文档庞大的时候需要自动分页<br>
+7. 后续其他功能扩展<br>
+   7.1 在线阅读：用户不需要下载到本地阅读(TBD)<br>
+   7.2 安全管理，用户权限管理(TBD)<br>
+   7.3 批量上传/下载文档(TBD)<br>
+   7.4 导出文件列表到CSV表格(TBD)<br>
+<br><br>
+
+任务列表：前端+后端<br>
+一、前端（UI美工+web页面）<br>
+1. 前期准备：html+css+js学习<br>
+2. 寻找主流前端框架,选择bootstrap，angular2, ...???<br>
+3. 用户界面UI设计(必须主流浏览器器自适应: ff+chrome+IE+webkit...)<br>
+4. 项目管理页面(增加/修改/删除)<br>
+5. 文档管理页面(增加/修改/删除/下载)<br>
+6. 上传文件页面(可以弹窗，表单提交等等tbd)<br>
+7. 用户登录/注册界面<br>
+8. ajax文档排序刷新页面<br>
+8. ...<br>
+<br><br>
+
+二、后端（mysql数据库+php实现）<br>
+1. 本地环境搭建(AMP: apache+,mysql+php)<br>
+2. mysql数据库表格设计<br>
+3. thinkphp框架学习,七牛云存储研究<br>
+4. 创建/修改/删除项目条目(基本属性应包含名称, 上传时间，修改时间，简单描述等)<br>
+5. 添加/修改/删除文档条目(文档属性应包含名称，上传时间，修改时间，简单描述等)到项目<br>
+6. 在文档分类中移动文档<br>
+7. 上传一个本地文档到云盘<br>
+8. 从云盘上下载一个文档到本地<br>
+9. 实现用户登录功能<br>
+10. 用户注册功能<br>
+11. 文档搜索功能，如按名称关键字，上传时间等检索<br>
+12. 文档排序功能，按名称/上传时间/修改时间排序<br>
+13. ...<br>
+<br><br>
+</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="box-header with-border">
+                  <h4 class="box-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                       <i class="fa fa-arrow-right"></i> 项目开发进展...
+                    </a>
+                  </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                  <div class="box-body">
+                    <!-- The time line -->
+                    <ul class="timeline">
+          <!-- timeline time label -->
+          <li class="time-label">
+                <span class="bg-red">
+                  2017.11.30
+                </span>
+          </li>
+          <!-- /.timeline-label -->
+          <!-- timeline item -->
+          <li>
+            <i class="fa fa-user bg-aqua"></i>
+            <div class="timeline-item">
+              <span class="time"><i class="fa fa-clock-o"></i> Deadline：2017-11-30</span>
+              <h3 class="timeline-header no-border"><a href="#">前端</a> kick off...</h3>
+              <h3 class="timeline-header no-border"><a href="#">后端</a> kick off...</h3>
+              
+            </div>
+          </li>
+          <!-- END timeline item -->
+          <li class="time-label">
+                <span class="bg-green">
+                  2017.12.10
+                </span>
+          </li>
+          <li>
+            <i class="fa fa-user bg-aqua"></i>
+            <div class="timeline-item">
+              <span class="time"><i class="fa fa-clock-o"></i> Deadline：2017-12-10</span>
+              <h3 class="timeline-header no-border"><a href="#">前端</a> 完成第一版</h3>
+              <h3 class="timeline-header no-border"><a href="#">后端</a> 完成第一版</h3>
+            </div>
+          </li>
+          <li class="time-label">
+                <span class="bg-green">
+                   2018.12.31
+                </span>
+          </li>
+          <li>
+            <i class="fa fa-clock-o bg-gray"></i>
+          </li>
+        </ul>
+                  </div>
+                </div>
+               </div>
+            </div>
+            <!-- /.box-body -->
+          </div>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{include file="common/footer" /}
