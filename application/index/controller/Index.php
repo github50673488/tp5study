@@ -2,12 +2,15 @@
 namespace app\index\controller;
 
 use think\Controller;
+use think\Db;
 
 class Index extends Controller
 {
-    public function index()//http://localhost/tp5study/
+    public function index()//http://tp5study.com
     {
-        return 'hello world liu';
+        $data = Db::name('data')->find();
+        $this->assign('result', $data);
+        return $this->fetch();
     }
 
     public function hello($name = 'thinkphp')//http://tp5study.com/index/index/hello
