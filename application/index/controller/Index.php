@@ -3,6 +3,7 @@ namespace app\index\controller;
 
 use think\Controller;
 use think\Db;
+use think\Request;
 
 class Index extends Controller
 {
@@ -24,5 +25,29 @@ class Index extends Controller
         // or http://tp5.com/index.php/index/index/hello1/city/shanghai/name/thinkphp
     {
         return 'Hello,' . $name . '! You come from ' . $city . '.';
+    }
+
+    public function hello2($name = 'World')//http://tp5.com/index/index/hello2.html?name=thinkphp
+    {
+        // 获取当前URL地址 不含域名
+        echo 'url: ' . $this->request->url() . '<br/>';
+        return 'Hello,' . $name . '！';
+    }
+
+//如果没有继承think\Controller，则可以使用Request对象注入的方式(use think\Request;)来简化调用，任何情况下都适用，也是系统建议的方式：
+    public function hello3(Request $request, $name = 'World')//http://tp5.com/index/index/hello3.html?name=thinkphp
+    {
+        // 获取当前URL地址 不含域名
+        echo 'url: ' . $request->url() . '<br/>';
+        return 'Hello,' . $name . '！';
+    }
+
+
+//如果既没有继承think\Controller也不想给操作方法添加额外的Request对象参数，那么也可以使用系统提供的助手，
+    public function hello4($name = 'World')//http://tp5.com/index/index/hello4.html?name=thinkphp
+    {
+        // 获取当前URL地址 不含域名
+        echo 'url: ' . request()->url() . '<br/>';
+        return 'Hello,' . $name . '！';
     }
 }
