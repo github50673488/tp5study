@@ -1,3 +1,5 @@
 .idea
 composer.lock
 *.log
+application/_gsdata_/
+public/_gsdata_/
